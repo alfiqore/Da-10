@@ -20,23 +20,31 @@ operator = {
     "/" : div
 }
 
-num1 = int(input("What's the first number : "))
+satu = 1 
 
-for key in operator:
-    print(key)
+def calc():
+    
+    num1 = int(input("What's the first number? : "))
+    for key in operator:
+        print(key)
 
-operations = input("Pick an operation : ")
 
-num2 = int(input("What's the second number : "))
-calculation = operator[operations]
-function_1 = calculation(num1,num2)
+    while satu > 0:
+        operations = input("Pick an operation : ")
 
-print(f"{num1} {operations} {num2} = {function_1} ")
+        num2 = int(input("What's the second number : "))
+        calculation = operator[operations]
+    
+        answer = calculation(num1,num2)
 
-operations_2 = input("Pick another operation : ")
+        print(f"{num1} {operations} {num2} = {answer} ")
 
-num3 = int(input("What's the number : "))
-calculation = operator[operations_2]
-function_2 = calculation(function_1, num3)
+        decision = input("Type 'y' if you want to continue or 'n' for new calculation of 'q' for quit")
+        if decision == 'y':
+            num1 = answer
+        elif decision == 'n':
+            calc()
+        else:
+            break
 
-print(function_2)
+calc()
